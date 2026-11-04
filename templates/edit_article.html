@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New</title>
+    <style>
+        textarea[name="article_title"] {
+            width: 20em;
+            /* Replaces columns */
+            height: 3em;
+            /* Replaces row-gap */
+            resize: none;
+        }
+
+        textarea[name="article_content"] {
+            width: 20em;
+            /* Replaces columns */
+            height: 7em;
+            /* Replaces row-gap */
+            resize: none;
+        }
+
+        /* Submit Button styling */
+        button[type="submit"] {
+            width: 20%;
+            padding: 10px;
+            background-color: #007bff;
+            /* Professional blue color */
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        /* Darken button on hover */
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+
+</head>
+
+<body>
+    <form action="#" method="post">
+        <h1>Update Article</h1>
+        {% if article_details %}
+        <textarea name="article_title" placeholder="Article Title"
+            required>{{article_details.get('title', "")}}</textarea>
+        <br>
+        <input type="date" name="updated_date" placeholder="Publishing Date" value="{{ article_details.get('date_posted', '') }}"
+            required>
+        <br>
+        <textarea name="article_content" placeholder="Content"
+            required>{{article_details.get('content', "")}}</textarea>
+        <br>
+        <button type="submit">Update</button>
+        {% endif %}
+    </form>
+</body>
+
+</html>
