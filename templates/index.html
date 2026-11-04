@@ -17,8 +17,6 @@
             {{article.get("date_posted", "")}}
         </p>
     </a>
-    <a href="{{url_for('edit_article', article_id=article_id)}}">Edit</a>
-    <hr>
     {%endfor%}
     {%endif%}
 </body>
