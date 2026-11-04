@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Blog</title>
+</head>
+
+<body>
+    <h1>Personal Blog</h1>
+    {%if articles%}
+    {%for article_id, article in articles.items()%}
+    <a href="{{ url_for('article_detail', article_id=article_id) }}">
+        <p>
+            <strong>{{article.get("title", "")}}</strong>
+            {{article.get("date_posted", "")}}
+        </p>
+    </a>
+    {%endfor%}
+    {%endif%}
+</body>
+<footer>
+    <a href="{{url_for('admin')}}">
+        <button type="button">Me</button>
+    </a>
+</footer>
+
+</html>
