@@ -12,12 +12,16 @@
     <a href="{{url_for('new_article')}}"><button type="button">+ Add</button></a>
     {%if articles%}
     {%for article_id, article in articles.items()%}
-    <a href="{{ url_for('article_detail', article_id=article_id) }}">
-        <p>
-            <strong>{{article.get("title", "")}}</strong>
-            {{article.get("date_posted", "")}}
-        </p>
-    </a>
+    <div>
+        <a href="{{ url_for('article_detail', article_id=article_id) }}">
+            <p>
+                <strong>{{article.get("title", "")}}</strong>
+                {{article.get("date_posted", "")}}
+            </p>
+        </a>
+        <a href="{{ url_for('edit_article', article_id=article_id) }}"><button type="button">Edit</button></a>
+        <a href="{{ url_for('delete_article', article_id=article_id) }}"><button type="button">Delete</button></a>
+    </div>
     {%endfor%}
     {%endif%}
 </body>
